@@ -1,50 +1,59 @@
-# IDM Trial Reset
+# IDM Trial Reset (Native C++ Win32)
 
-Native Win32 C++ desktop interface matching the tabbed dialog layout, controls, and icon extracted from the AutoIt script.
+Open-source, lightweight Windows utility to reset the 30-day Internet Download Manager (IDM) trial and handle registration data. Rebuilt from scratch in native C++ using the Win32 API and Common Controls v6.
+
+## Features
+
+- **Trial Reset**: Clears expired evaluation state and restores default 30-day trial status.
+- **Registration Tool**: Applies custom name registration parameters.
+- **Auto Reset**: Background task flag `/trial` for automated startup evaluation resets.
+- **Zero External Dependencies**: Pure C++ Win32 application compiled with MSVC (no AutoIt runtime required).
+- **Dark/Light High-DPI UI**: Classic tabbed Win32 dialog matching original layout and icons.
+
+## Requirements
+
+- Windows 7, 8, 8.1, 10, 11 (x86 / x64)
+- Visual Studio 2022 / C++17 Toolset (for building from source)
 
 ## Project Structure
 
 ```text
 idm-trial-reset/
-├── .gitignore
-├── CMakeLists.txt
-├── README.md
 ├── assets/
 │   ├── app.ico
+│   ├── manifest.xml
 │   └── resource.rc
 ├── include/
 │   ├── app.hpp
 │   └── ui_helpers.hpp
-└── src/
-    ├── app.cpp
-    ├── main.cpp
-    └── ui_helpers.cpp
+├── src/
+│   ├── app.cpp
+│   ├── main.cpp
+│   └── ui_helpers.cpp
+├── idm-trial-reset.sln
+└── idm-trial-reset.vcxproj
 ```
 
-## Building Across Architectures
+## Build Instructions
 
-### 64-bit (x64) Build
+### Visual Studio IDE
+Open `idm-trial-reset.sln` in Visual Studio 2022, select **Release | x64** or **Release | x86**, and press **Build Solution** (`Ctrl+Shift+B`).
+
+### MSBuild (Command Line)
+```powershell
+MSBuild.exe idm-trial-reset.sln /p:Configuration=Release /p:Platform=x64
+```
+
+## Command Line Usage
+
+Run background reset mode directly:
 ```cmd
-cmd.exe /c "call ""C:\Program Files (x86)\Microsoft Visual Studio\18\BuildTools\VC\Auxiliary\Build\vcvars64.bat"" && rc /fo assets/resource.res assets/resource.rc && cl /EHsc /std:c++17 /Iinclude /Isrc src/main.cpp src/app.cpp src/ui_helpers.cpp assets/resource.res User32.lib Gdi32.lib Comctl32.lib /Fe:""IDM Trial Reset.exe"""
+"IDM Trial Reset.exe" /trial
 ```
-
-### 32-bit (x86) Build
-```cmd
-cmd.exe /c "call ""C:\Program Files (x86)\Microsoft Visual Studio\18\BuildTools\VC\Auxiliary\Build\vcvars32.bat"" && rc /fo assets/resource.res assets/resource.rc && cl /EHsc /std:c++17 /Iinclude /Isrc src/main.cpp src/app.cpp src/ui_helpers.cpp assets/resource.res User32.lib Gdi32.lib Comctl32.lib /Fe:""IDM Trial Reset.exe"""
-```
-
-### CMake Build
-```bash
-mkdir build && cd build
-cmake ..
-cmake --build . --config Release
-```
-
-## Architecture Compatibility
-- **32-bit (x86) Build:** Runs on both 32-bit Windows and 64-bit Windows via WOW64.
-- **64-bit (x64) Build:** Runs natively on 64-bit Windows.
 
 ## Author & Credits
+
 - **Developer:** [Rabbany](https://github.com/rabbanyhmm)
 - **Repository:** [idm-trial-reset](https://github.com/rabbanyhmm/idm-trial-reset)
+
 
