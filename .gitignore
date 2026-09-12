@@ -1,0 +1,23 @@
+# Build artifacts
+*.exe
+*.dll
+*.obj
+*.o
+*.pdb
+*.ilk
+*.idb
+*.iobj
+*.ipdb
+*.res
+*.tlog
+*.recipe
+*.log
+
+# IDE & Build folders
+build/
+bin/
+bin-int/
+.vs/
+out/
+*.user
+*.vcxproj.user
