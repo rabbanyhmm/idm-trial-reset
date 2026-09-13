@@ -51,6 +51,15 @@ Run background reset mode directly:
 "IDM Trial Reset.exe" /trial
 ```
 
+## Disclaimer
+
+This project is developed strictly for educational, technical demonstration, and interoperability research purposes.
+
+- This software is not affiliated with, authorized, maintained, or endorsed by Tonec Inc. or the creators of Internet Download Manager.
+- All trademarks, service marks, and company names are the property of their respective owners.
+- If you use Internet Download Manager regularly, please support the developers by purchasing a valid license from their official website: [internetdownloadmanager.com](https://www.internetdownloadmanager.com/).
+- Use of this software is at your own discretion and risk. The authors and contributors assume no responsibility or liability for any consequences arising from the use of this tool.
+
 ## Author & Credits
 
 - **Developer:** [Rabbany](https://github.com/rabbanyhmm)
